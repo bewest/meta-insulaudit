@@ -1,1 +1,8 @@
 script: ./core-image-minimal && ./meta-toolchain
+
+before_script:
+  # https://code.google.com/p/web2py/source/browse/.travis.yml?r=7c3facf28bfa8f93f9b92d1f71ad1d5eb5a1db90
+  # https://github.com/travis-ci/travis-core/issues/187#issuecomment-13682856
+  #Temporal solution to travis issue #155
+  - sudo chmod 777 /dev/shm
+  - sudo rm -rf /dev/shm && sudo ln -s /run/shm /dev/shm
